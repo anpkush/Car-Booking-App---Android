@@ -30,7 +30,7 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@id/ivBack"
             android:layout_width="110dp"
-            android:src="@drawable/book"
+            android:src="@drawable/car"
             android:layout_height="110dp"/>
 
         <TextView
