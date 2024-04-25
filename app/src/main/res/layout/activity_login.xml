@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/back"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:background="@drawable/shape_toolbar01"
+        android:layout_height="250dp">
+        
+        <ImageView
+            android:id="@+id/iconIv"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/car"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/iconIv"
+            android:layout_centerHorizontal="true"
+            android:text="Please Login"
+            android:textSize="28sp"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="225dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailTil"
+                android:layout_width="match_parent"
+                app:hintEnabled="false"
+                android:layout_height="wrap_content">
+
+
+                <EditText
+                    android:id="@+id/emailEt"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/shape_edittext01"
+                    android:drawableStart="@drawable/baseline_email_gray"
+                    android:inputType="textEmailAddress"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:hint="Email"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/Gray01"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordTil"
+                android:layout_below="@+id/emailTil"
+                android:layout_width="match_parent"
+                app:passwordToggleEnabled="true"
+                android:layout_marginTop="5dp"
+                app:hintEnabled="false"
+                android:layout_height="wrap_content">
+
+
+                <EditText
+                    android:id="@+id/passwordet"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/shape_edittext01"
+                    android:drawableStart="@drawable/baseline_lock_gray"
+                    android:inputType="textPassword"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:hint="Password"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/Gray01"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvForgotPossword"
+                android:layout_below="@id/passwordTil"
+                android:layout_width="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:text="Forgot Possword?"
+                android:textSize="17dp"
+                android:textColor="@color/Gray01"
+                android:layout_height="wrap_content"/>
+
+
+            <Button
+                android:id="@+id/btLogin"
+                android:layout_below="@id/tvForgotPossword"
+                android:text="Login"
+                android:textSize="20dp"
+                android:background="@drawable/shape_button01"
+                android:layout_width="match_parent"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tvRegistration"
+        android:layout_width="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:text="@string/new_user_register"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>
+

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "801908998033",
+    "project_id": "carbookingapp-ce462",
+    "storage_bucket": "carbookingapp-ce462.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801908998033:android:173244d95a8d6e4d3da430",
+        "android_client_info": {
+          "package_name": "com.example.carbookingapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3_FtgWz5c46LNuclakzXyYN9h0uh42fg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

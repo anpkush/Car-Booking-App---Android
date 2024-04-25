@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Car Booking App</string>
+    <string name="password">Possword</string>
+    <string name="new_user_register">New User?<b>Register</b></string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="passwordo">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="add_category">+ Add Category</string>
+    <string name="register">Register</string>
+</resources>
