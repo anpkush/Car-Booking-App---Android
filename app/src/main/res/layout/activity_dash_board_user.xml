@@ -8,6 +8,7 @@
     android:background="@drawable/back"
     tools:context=".DashBoardUserActivity">
 
+
     <RelativeLayout
         android:id="@+id/rlToolbar"
         android:layout_width="match_parent"
@@ -48,6 +49,7 @@
             android:src="@drawable/power_button" />
 
     </RelativeLayout>
+
 
 
 

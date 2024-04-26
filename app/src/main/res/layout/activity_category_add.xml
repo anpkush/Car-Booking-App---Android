@@ -4,81 +4,159 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:background="@drawable/back"
     android:layout_height="match_parent"
+    android:background="@drawable/back"
     tools:context=".CategoryAddActivity">
 
 
     <RelativeLayout
         android:id="@+id/toolbarRl"
-        android:background="@drawable/shape_toolbar01"
         android:layout_width="match_parent"
-        android:layout_height="220dp">
-        
-        
+        android:layout_height="220dp"
+        android:background="@drawable/shape_toolbar01">
+
+
         <ImageView
             android:id="@+id/ivBack"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:padding="5dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/back_button"
-            android:layout_height="wrap_content"/>
-        
+            android:padding="5dp"
+            android:src="@drawable/back_button" />
+
         <ImageView
             android:id="@+id/ivIcon"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/ivBack"
             android:layout_width="110dp"
-            android:src="@drawable/car"
-            android:layout_height="110dp"/>
+            android:layout_height="110dp"
+            android:layout_below="@id/ivBack"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/car"/>
 
         <TextView
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/ivIcon"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:text="Add new Category"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="@color/white"
-            android:textSize="30dp"
             android:scrollbarSize="28sp"
-            android:layout_height="wrap_content"/>
+            android:text="Add new Car Details"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
     </RelativeLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/titleTil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="30dp"
+        app:hintEnabled="false">
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_edittext01"
+            android:drawableStart="@drawable/person"
+            android:drawablePadding="10dp"
+            android:hint="Car Owner Name"
+            android:inputType="textPersonName|textCapWords"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/Gray01" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilMobileNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleTil"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        app:hintEnabled="false">
+
+        <EditText
+            android:id="@+id/etMobileNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_edittext01"
+            android:drawableStart="@drawable/b_phone"
+            android:drawablePadding="10dp"
+            android:hint="Mobile Number"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/Gray01" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tilMobileNumber"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        app:hintEnabled="false">
+
+        <EditText
+            android:id="@+id/etAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_edittext01"
+            android:drawableStart="@drawable/b_add"
+            android:drawablePadding="10dp"
+            android:hint="Address"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/Gray01" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilCategory"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tilAddress"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
-        app:hintEnabled="false"
-        android:layout_height="wrap_content">
+        app:hintEnabled="false">
 
         <EditText
             android:id="@+id/etCategory"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/shape_edittext01"
             android:drawableStart="@drawable/ic_category"
             android:hint="Category Title"
             android:inputType="textPersonName|textCapSentences"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/Gray01"
-            android:layout_height="wrap_content"/>
+            android:textColorHint="@color/Gray01" />
+
 
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <Button
         android:id="@+id/btSubmit"
-        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tilCategory"
-        android:text="Submit"
-        android:textSize="20dp"
         android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
         android:backgroundTint="@color/Purpule"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:text="Submit"
+        android:textSize="20dp" />
 
 </RelativeLayout>

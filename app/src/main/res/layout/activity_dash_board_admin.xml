@@ -75,9 +75,8 @@
         android:layout_margin="10dp"
         tools:listitem="@layout/row_category">
 
+
     </androidx.recyclerview.widget.RecyclerView>
-
-
     <LinearLayout
         android:id="@+id/llBotton"
         android:layout_width="match_parent"
@@ -87,6 +86,8 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:orientation="horizontal">
+
+
 
         <Button
             android:id="@+id/btCategory"

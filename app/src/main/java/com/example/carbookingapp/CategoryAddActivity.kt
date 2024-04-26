@@ -2,7 +2,6 @@ package com.example.carbookingapp
 
 import android.app.ProgressDialog
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carbookingapp.databinding.ActivityCategoryAddBinding
@@ -34,20 +33,11 @@ class CategoryAddActivity : AppCompatActivity() {
             onBackPressed()
         }
         binding.btSubmit.setOnClickListener{
-            validateData()
-        }
-
-    }
-        private var category =" ";
-        private fun validateData() {
-        category= binding.etCategory.text.toString().trim()
-
-        if (category.isEmpty()){
-            Toast.makeText(this,"Enter the Category",Toast.LENGTH_SHORT).show()
-        }else{
             addCategoryFirebase()
         }
+
     }
+
 
     private fun addCategoryFirebase() {
         progressDialog.show()
@@ -55,13 +45,14 @@ class CategoryAddActivity : AppCompatActivity() {
         val timestamp= System.currentTimeMillis()
 
         val hashMap= HashMap<String,Any>()
-        hashMap["id"]= "$timestamp"
-        hashMap["category"]= category
-        hashMap["timestamp"]= timestamp
+        hashMap["category"]= binding.etCategory.text.toString()
+        hashMap["carOwnerName"]= binding.etName.text.toString()
+        hashMap["mobileNumber"]= binding.etMobileNumber.text.toString()
+
         hashMap["uid"]= "${firebaseAuth.uid}"
 
 
-        val ref= FirebaseDatabase.getInstance().getReference("Categories")
+        val ref= FirebaseDatabase.getInstance().getReference("UserCategories")
         ref.child("$timestamp")
             .setValue(hashMap)
             .addOnSuccessListener(){
@@ -74,7 +65,8 @@ class CategoryAddActivity : AppCompatActivity() {
                 progressDialog.dismiss()
                 Toast.makeText(this,"Add failed due to ${e.message}",Toast.LENGTH_SHORT)
             }
-
-
     }
+
+
+
 }
