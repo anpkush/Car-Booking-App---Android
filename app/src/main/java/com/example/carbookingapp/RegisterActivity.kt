@@ -69,7 +69,8 @@ class RegisterActivity : AppCompatActivity() {
         progressDialog.setMessage("Creating Message...")
         progressDialog.show()
 
-        firebaseAuth.createUserWithEmailAndPassword(binding.etEmail.text.toString(),binding.etPassword.text.toString()).addOnSuccessListener {
+        firebaseAuth.createUserWithEmailAndPassword(binding.etEmail.text.toString(),
+            binding.etPassword.text.toString()).addOnSuccessListener {
             updateUserInfo()
 
         }.addOnFailureListener{e->
@@ -88,7 +89,7 @@ class RegisterActivity : AppCompatActivity() {
         hashMap["uid"]= uid
         hashMap["email"]= binding.etEmail.text.toString()
         hashMap["name"]= binding.etName.text.toString()
-        /*hashMap["profile image"]= " "*/
+        hashMap["profile image"]= " "
         hashMap["userType"]=binding.etUserType.text.toString()
         hashMap["timestamp"]= timestamp
 

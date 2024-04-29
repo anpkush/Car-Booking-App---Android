@@ -48,7 +48,6 @@ class CategoryAddActivity : AppCompatActivity() {
         hashMap["category"]= binding.etCategory.text.toString()
         hashMap["carOwnerName"]= binding.etName.text.toString()
         hashMap["mobileNumber"]= binding.etMobileNumber.text.toString()
-
         hashMap["uid"]= "${firebaseAuth.uid}"
 
 
