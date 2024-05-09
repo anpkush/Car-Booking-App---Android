@@ -6,6 +6,7 @@
     android:layout_marginStart="10dp"
     android:layout_marginBottom="10dp"
     android:gravity="center_vertical"
+    app:cardCornerRadius="10dp"
     android:padding="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,16 +16,16 @@
 
         <ImageView
             android:id="@+id/icCarImage"
-            android:layout_width="150dp"
+            android:layout_width="120dp"
             android:layout_height="120dp"
             android:elevation="30dp"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/car"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvCarName"
+            android:id="@+id/tvCarOwnerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -39,7 +40,16 @@
             android:layout_margin="16dp"
             android:text="Mobile"
             app:layout_constraintStart_toEndOf="@+id/icCarImage"
-            app:layout_constraintTop_toBottomOf="@+id/tvCarName" />
+            app:layout_constraintTop_toBottomOf="@+id/tvCarOwnerName" />
+
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Category"
+            app:layout_constraintStart_toEndOf="@+id/icCarImage"
+            app:layout_constraintTop_toBottomOf="@+id/tvMobile" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -7,13 +7,11 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.carbookingapp.model.ModelCategory
 import com.example.carbookingapp.databinding.RowCategoryBinding
-import com.google.firebase.database.FirebaseDatabase
+import com.example.carbookingapp.model.ModelCategory
 
-class AdapterCategory : RecyclerView.Adapter<AdapterCategory.HolderCategory>, Filterable {
+class AdapterAdminCategory : RecyclerView.Adapter<AdapterAdminCategory.HolderCategory>, Filterable {
 
     private val context: Context
     var categoryArrayList: ArrayList<ModelCategory>
@@ -40,10 +38,9 @@ class AdapterCategory : RecyclerView.Adapter<AdapterCategory.HolderCategory>, Fi
 
         val model = categoryArrayList[position]
 
-
-//        Change here Comment Out
-        holder.tvcCategory.text = model.category
-        holder.tvMobile.text = model.mobileNumber
+        holder.tvCategory.text = String.format("Category: " + model.category)
+        holder.tvCarOwner.text = String.format("Car Owner Name: " + model.carOwnerName)
+        holder.tvMobile.text =String.format("Mobile No:: " + model.mobileNumber)
 
 
 //        holder.btDelete.setOnClickListener() {
@@ -63,23 +60,23 @@ class AdapterCategory : RecyclerView.Adapter<AdapterCategory.HolderCategory>, Fi
 
     }
 
-    private fun deleteCategory(model: ModelCategory, holder: HolderCategory) {
-        val id = model.id
-        val ref = FirebaseDatabase.getInstance().getReference("Categories")
-        ref.child(id)
-            .removeValue()
-            .addOnSuccessListener() {
-                Toast.makeText(context, "Deleted...", Toast.LENGTH_SHORT).show()
-
-            }
-            .addOnFailureListener() { e ->
-                Toast.makeText(
-                    context,
-                    "Unable due to delete due to ${e.message}",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-    }
+//    private fun deleteCategory(model: ModelCategory, holder: HolderCategory) {
+//        val id = model.id
+//        val ref = FirebaseDatabase.getInstance().getReference("Categories")
+//        ref.child(id)
+//            .removeValue()
+//            .addOnSuccessListener() {
+//                Toast.makeText(context, "Deleted...", Toast.LENGTH_SHORT).show()
+//
+//            }
+//            .addOnFailureListener() { e ->
+//                Toast.makeText(
+//                    context,
+//                    "Unable due to delete due to ${e.message}",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            }
+//    }
 
     override fun getItemCount(): Int {
         return categoryArrayList.size
@@ -87,10 +84,10 @@ class AdapterCategory : RecyclerView.Adapter<AdapterCategory.HolderCategory>, Fi
 
 
     inner class HolderCategory(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var tvcCategory: TextView = binding.tvCarName
+        var tvCarOwner: TextView = binding.tvCarOwnerName
+        var tvCategory: TextView = binding.tvCategory
         var tvMobile: TextView = binding.tvMobile
 
-//        var btDelete: ImageButton = binding.btDelete
     }
 
     override fun getFilter(): Filter {

@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back"
     tools:context=".activity.DashBoardUserActivity">
-
 
     <RelativeLayout
         android:id="@+id/rlToolbar"
@@ -48,10 +48,34 @@
             android:background="@android:color/transparent"
             android:src="@drawable/power_button" />
 
+
+
     </RelativeLayout>
 
+    <EditText
+        android:id="@+id/etSearch"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/rlToolbar"
+        android:layout_margin="10dp"
+        android:background="@color/white"
+        android:drawableStart="@drawable/ba_search"
+        android:hint="Search"
+        android:inputType="text"
+        android:lines="1"
+        android:maxLines="1"
+        android:padding="10dp"
+        android:textColorHint="@color/Gray01" />
 
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCategory"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/llBotton"
+        android:layout_below="@+id/etSearch"
+        android:layout_margin="10dp"
+        tools:listitem="@layout/row_category"/>
 
 
 

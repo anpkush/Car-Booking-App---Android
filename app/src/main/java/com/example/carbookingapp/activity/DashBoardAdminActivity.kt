@@ -8,7 +8,7 @@ import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.carbookingapp.model.ModelCategory
-import com.example.carbookingapp.adapter.AdapterCategory
+import com.example.carbookingapp.adapter.AdapterAdminCategory
 import com.example.carbookingapp.databinding.ActivityDashBoardAdminBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -20,9 +20,8 @@ import com.google.firebase.database.ValueEventListener
 class DashBoardAdminActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDashBoardAdminBinding
-    private lateinit var firebaseUser: FirebaseUser
     private lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var adapterCategory: AdapterCategory
+    private lateinit var adapterCategory: AdapterAdminCategory
 
     private lateinit var categoryArrayList: ArrayList<ModelCategory>
 
@@ -83,7 +82,7 @@ class DashBoardAdminActivity : AppCompatActivity() {
                     categoryArrayList.add(model!!)
                 }
 
-                adapterCategory = AdapterCategory(this@DashBoardAdminActivity, categoryArrayList)
+                adapterCategory = AdapterAdminCategory(this@DashBoardAdminActivity, categoryArrayList)
                 binding.rvCategory.layoutManager = LinearLayoutManager(this@DashBoardAdminActivity)
 
                 binding.rvCategory.adapter = adapterCategory

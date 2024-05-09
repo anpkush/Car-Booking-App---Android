@@ -1,24 +1,7 @@
 package com.example.carbookingapp.model
 
-import java.sql.Timestamp
-
 class ModelCategory {
-    var id:String=""
-    var category:String=""
-    var timestamp:Long= 0
-    var uid:String= ""
-    var mobileNumber:String =""
-
-    constructor()
-    constructor(id:String, category: String, timestamp: Long, uid:String){
-        this.id= id
-        this.category= category
-        this.timestamp= timestamp
-        this.uid=uid
-
-
-    }
-
-
-
+    var category: String = ""
+    var mobileNumber: String = ""
+    var carOwnerName: String = ""
 }
