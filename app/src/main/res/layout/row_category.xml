@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/icCarImage"
         android:layout_width="150dp"
-        android:src="@drawable/scorpio"
+        android:src="@drawable/ic_launcher_background"
         android:elevation="30dp"
         android:layout_height="120dp"/>
 
