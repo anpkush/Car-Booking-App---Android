@@ -196,18 +196,26 @@
             android:layout_marginTop="15dp"
             app:hintEnabled="false">
 
-            <EditText
-                android:id="@+id/etUserType"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+
+            <Spinner
+                android:id="@+id/dropDown"
                 android:background="@drawable/shape_edittext01"
                 android:drawableStart="@drawable/b_user"
-                android:drawablePadding="10dp"
-                android:hint="User / Admin"
-                android:inputType="text"
-                android:padding="10dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/Gray01" />
+                android:layout_width="match_parent"
+                android:layout_height="40dp"/>
+
+<!--            <EditText-->
+<!--                android:id="@+id/etUserType"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                -->
+<!--               -->
+<!--                android:drawablePadding="10dp"-->
+<!--                android:hint="User / Admin"-->
+<!--                android:inputType="text"-->
+<!--                android:padding="10dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textColorHint="@color/Gray01" />-->
 
         </com.google.android.material.textfield.TextInputLayout>
 
