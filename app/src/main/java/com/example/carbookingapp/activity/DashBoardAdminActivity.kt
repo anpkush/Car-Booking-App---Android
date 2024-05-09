@@ -2,9 +2,11 @@ package com.example.carbookingapp.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.carbookingapp.model.ModelCategory
@@ -22,8 +24,9 @@ class DashBoardAdminActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDashBoardAdminBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var adapterCategory: AdapterAdminCategory
-
     private lateinit var categoryArrayList: ArrayList<ModelCategory>
+
+    var sharedPreferences: SharedPreferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,8 +35,10 @@ class DashBoardAdminActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
-        checkUser()
         loadCategories()
+        logout()
+
+        sharedPreferences = getSharedPreferences(SHARED_PREF_ADMIN, MODE_PRIVATE)
 
         binding.etSearch.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -56,18 +61,26 @@ class DashBoardAdminActivity : AppCompatActivity() {
 
         })
 
-        binding.btLogout.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
-
-        }
-
 
         binding.btCategory.setOnClickListener {
             startActivity(Intent(this, CategoryAddActivity::class.java))
         }
 
 
+    }
+
+    private fun logout() {
+
+        binding.ivLogout.setOnClickListener {
+            val editor = sharedPreferences?.edit()
+            editor?.clear()
+            editor?.apply()
+
+            val intent = Intent(this@DashBoardAdminActivity, LoginActivity::class.java)
+            startActivity(intent)
+            Toast.makeText(this@DashBoardAdminActivity, "logout", Toast.LENGTH_SHORT).show()
+            finish()
+        }
     }
 
     private fun loadCategories() {
@@ -95,12 +108,9 @@ class DashBoardAdminActivity : AppCompatActivity() {
         })
     }
 
-    @SuppressLint("SetTextI18n")
-    private fun checkUser() {
-        /*val email= firebaseUser.email
-
-        binding.tvSubTitle.text= email*/
-
-
+    companion object {
+        private const val SHARED_PREF_ADMIN = "MyPref"
     }
+
+
 }

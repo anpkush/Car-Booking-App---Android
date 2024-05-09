@@ -2,7 +2,9 @@ package com.example.carbookingapp.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.carbookingapp.adapter.AdapterAdminCategory
@@ -20,17 +22,34 @@ class DashBoardUserActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var adapterCategory: AdapterAdminCategory
     private lateinit var categoryArrayList: ArrayList<ModelCategory>
+    var sharedPreferences: SharedPreferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDashBoardUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE)
+
         firebaseAuth = FirebaseAuth.getInstance()
         loadCategories()
         loging()
+        logout()
 
 
+    }
+
+    private fun logout() {
+        binding.ivLogout.setOnClickListener {
+            val editor = sharedPreferences?.edit()
+            editor?.clear()
+            editor?.apply()
+
+            val intent = Intent(this@DashBoardUserActivity, LoginActivity::class.java)
+            startActivity(intent)
+            Toast.makeText(this@DashBoardUserActivity, "logout", Toast.LENGTH_SHORT).show()
+            finish()
+        }
     }
 
     private fun loging() {
@@ -65,6 +84,10 @@ class DashBoardUserActivity : AppCompatActivity() {
 
             }
         })
+    }
+
+    companion object {
+       private const val SHARED_PREF_NAME = "MyPref"
     }
 
 }
