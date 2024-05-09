@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
+import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.Toast.*
@@ -26,10 +27,15 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var progressDialog: ProgressDialog
 
+    private val userType= arrayListOf("Select User","Admin","User")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        val usertypeAdapter= ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,userType)
+        binding.dropDown.adapter=usertypeAdapter
 
         FirebaseApp.initializeApp(
             this
@@ -89,8 +95,8 @@ class RegisterActivity : AppCompatActivity() {
         hashMap["uid"]= uid
         hashMap["email"]= binding.etEmail.text.toString()
         hashMap["name"]= binding.etName.text.toString()
-        hashMap["profile image"]= " "
-        hashMap["userType"]=binding.etUserType.text.toString()
+//        hashMap["profile image"]= " "
+        hashMap["userType"]=binding.dropDown.toString()
         hashMap["timestamp"]= timestamp
 
         val ref= FirebaseDatabase.getInstance().getReference("User")

@@ -43,7 +43,10 @@ class AdapterCategory :RecyclerView.Adapter<AdapterCategory.HolderCategory>, Fil
 
         val model= categoryArrayList[position]
 
-        holder.tvcCategory.text= model.category
+
+
+//        Change here Comment Out
+//        holder.tvcCategory.text= model.category
 
 
 //        holder.btDelete.setOnClickListener(){
@@ -83,7 +86,7 @@ class AdapterCategory :RecyclerView.Adapter<AdapterCategory.HolderCategory>, Fil
 
 
     inner class HolderCategory(itemView: View):RecyclerView.ViewHolder(itemView){
-        var tvcCategory:TextView=binding.tvCategory
+//        var tvcCategory:TextView=binding.tvCategory
 //        var btDelete:ImageButton= binding.btDelete
     }
 
