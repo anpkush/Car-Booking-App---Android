@@ -1,4 +1,4 @@
-package com.example.carbookingapp
+package com.example.carbookingapp.model
 
 import java.sql.Timestamp
 
@@ -7,6 +7,7 @@ class ModelCategory {
     var category:String=""
     var timestamp:Long= 0
     var uid:String= ""
+    var mobileNumber:String =""
 
     constructor()
     constructor(id:String, category: String, timestamp: Long, uid:String){

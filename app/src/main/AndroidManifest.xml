@@ -24,16 +24,16 @@
 <!--            android:name=".CarActivity"-->
 <!--            android:exported="false" />-->
         <activity
-            android:name=".CategoryAddActivity"
+            android:name=".activity.CategoryAddActivity"
             android:exported="false" />
         <activity
-            android:name=".DashBoardAdminActivity"
+            android:name=".activity.DashBoardAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".DashBoardUserActivity"
+            android:name=".activity.DashBoardUserActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,10 +42,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activity.RegisterActivity"
             android:exported="false"/>
 
     </application>

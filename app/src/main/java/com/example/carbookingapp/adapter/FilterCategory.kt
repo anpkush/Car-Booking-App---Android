@@ -1,6 +1,7 @@
-package com.example.carbookingapp
+package com.example.carbookingapp.adapter
 
 import android.widget.Filter
+import com.example.carbookingapp.model.ModelCategory
 
 class FilterCategory : Filter {
 

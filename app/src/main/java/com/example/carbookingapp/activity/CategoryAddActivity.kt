@@ -1,4 +1,4 @@
-package com.example.carbookingapp
+package com.example.carbookingapp.activity
 
 import android.app.ProgressDialog
 import android.os.Bundle

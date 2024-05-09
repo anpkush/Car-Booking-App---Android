@@ -1,12 +1,11 @@
 @file:Suppress("DEPRECATION")
 
-package com.example.carbookingapp
+package com.example.carbookingapp.activity
 
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -35,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
         progressDialog.setCanceledOnTouchOutside(false)
 
         binding.tvRegistration.setOnClickListener{
-            startActivity(Intent(this,RegisterActivity::class.java))
+            startActivity(Intent(this, RegisterActivity::class.java))
 
 
         }
@@ -70,11 +69,10 @@ class LoginActivity : AppCompatActivity() {
 
         firebaseAuth.signInWithEmailAndPassword(email,password)
             .addOnSuccessListener{
-                Log.e("loginUser", "loginUser: ", )
                 checkUser()
             }
             .addOnFailureListener{e->
-                Toast.makeText(this,"Logging failed due to ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,e.message, Toast.LENGTH_LONG).show()
             }
 
     }
@@ -95,12 +93,12 @@ class LoginActivity : AppCompatActivity() {
                     val userType= snapshot.child("userType").value
 
                     if (userType=="User"){
-                        startActivity(Intent(this@LoginActivity,DashBoardUserActivity::class.java))
+                        startActivity(Intent(this@LoginActivity, DashBoardUserActivity::class.java))
                         finish()
 
                     }else if (userType=="Admin"){
 
-                        startActivity(Intent(this@LoginActivity,DashBoardAdminActivity::class.java))
+                        startActivity(Intent(this@LoginActivity, DashBoardAdminActivity::class.java))
                         finish()
                     }
 

@@ -1,4 +1,4 @@
-package com.example.carbookingapp
+package com.example.carbookingapp.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -7,6 +7,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.carbookingapp.model.ModelCategory
+import com.example.carbookingapp.adapter.AdapterCategory
 import com.example.carbookingapp.databinding.ActivityDashBoardAdminBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -72,13 +74,12 @@ class DashBoardAdminActivity : AppCompatActivity() {
     private fun loadCategories() {
         categoryArrayList = ArrayList()
 
-        val ref = FirebaseDatabase.getInstance().getReference("Categories")
+        val ref = FirebaseDatabase.getInstance().getReference("UserCategories")
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 categoryArrayList.clear()
                 for (ds in snapshot.children) {
                     val model = ds.getValue(ModelCategory::class.java)
-
                     categoryArrayList.add(model!!)
                 }
 

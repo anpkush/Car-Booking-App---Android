@@ -1,10 +1,9 @@
-package com.example.carbookingapp
+package com.example.carbookingapp.activity
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carbookingapp.databinding.ActivityMainBinding
-import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -15,11 +14,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btLogin.setOnClickListener{
-            startActivity(Intent(this,LoginActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
         }
 
         binding.btSkip.setOnClickListener{
-            startActivity(Intent(this,DashBoardUserActivity::class.java))
+            startActivity(Intent(this, DashBoardUserActivity::class.java))
         }
 
 

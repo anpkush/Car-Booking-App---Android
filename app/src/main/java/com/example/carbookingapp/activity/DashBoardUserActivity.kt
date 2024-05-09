@@ -1,4 +1,4 @@
-package com.example.carbookingapp
+package com.example.carbookingapp.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -25,7 +25,7 @@ class DashBoardUserActivity : AppCompatActivity() {
 
         binding.ivLogout.setOnClickListener {
             firebaseAuth.signOut()
-            startActivity(Intent(this,LoginActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
 

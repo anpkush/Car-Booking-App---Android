@@ -1,16 +1,12 @@
 @file:Suppress("DEPRECATION")
 
-package com.example.carbookingapp
+package com.example.carbookingapp.activity
 
 
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Patterns
-import android.widget.ArrayAdapter
-import android.widget.TextView
-import android.widget.Toast
 import android.widget.Toast.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carbookingapp.databinding.ActivityRegisterBinding
@@ -27,15 +23,15 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var progressDialog: ProgressDialog
 
-    private val userType= arrayListOf("Select User","Admin","User")
+//    private val userType= arrayListOf("Select User","Admin","User")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
-        val usertypeAdapter= ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,userType)
-        binding.dropDown.adapter=usertypeAdapter
+//        val usertypeAdapter= ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,userType)
+//        binding.etUserType.adapter=usertypeAdapter
 
         FirebaseApp.initializeApp(
             this
@@ -65,7 +61,7 @@ class RegisterActivity : AppCompatActivity() {
 // Open Login Screen
 
         binding.tvLogin.setOnClickListener{
-            startActivity(Intent(this,LoginActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
 
@@ -96,7 +92,7 @@ class RegisterActivity : AppCompatActivity() {
         hashMap["email"]= binding.etEmail.text.toString()
         hashMap["name"]= binding.etName.text.toString()
 //        hashMap["profile image"]= " "
-        hashMap["userType"]=binding.dropDown.toString()
+        hashMap["userType"]=binding.etUserType.text.toString()
         hashMap["timestamp"]= timestamp
 
         val ref= FirebaseDatabase.getInstance().getReference("User")
